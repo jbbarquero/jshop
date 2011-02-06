@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_malsolo_jshop_domain_ElectricalAppliance" object="${electricalappliance}" path="/electricalappliances" z="V3f52u2/GNrJ4q/qkMM2HnCxRf4=">
+        <field:display field="name" id="s_com_malsolo_jshop_domain_ElectricalAppliance_name" object="${electricalappliance}" z="3hKe63aCLJnrNfuWvfi8q2Gz6I0="/>
+        <field:display field="description" id="s_com_malsolo_jshop_domain_ElectricalAppliance_description" object="${electricalappliance}" z="w1IuvOKJFLlb9Bw6tNvu6w4i4aI="/>
+        <field:display field="kind" id="s_com_malsolo_jshop_domain_ElectricalAppliance_kind" object="${electricalappliance}" z="e7wTbgf3fyCbAX8n7zyi6af1R/Q="/>
+    </page:show>
+</div>

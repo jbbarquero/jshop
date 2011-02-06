@@ -1,0 +1,16 @@
+// Spring Roo 1.1.1.RELEASE [rev 156ccd6] log opened at 2011-02-06 17:39:00
+hint
+project --topLevelPackage com.malsolo.jshop
+persistence setup --provider HIBERNATE --database HYPERSONIC_IN_MEMORY 
+entity --class ~.domain.Kind --testAutomatically 
+field string name --notNull --sizeMin 1 --sizeMax 50
+field string description --notNull --sizeMax 250
+entity --class ~.domain.ElectricalAppliance --testAutomatically 
+field string name --notNull --sizeMin 1 --sizeMax 50
+field string description --notNull --sizeMax 250 
+field reference --fieldName kind --type ~.domain.Kind --notNull --cardinality MANY_TO_ONE 
+controller all --package ~.web
+logging setup --level DEBUG 
+security setup
+quit
+// Spring Roo 1.1.1.RELEASE [rev 156ccd6] log closed at 2011-02-06 21:38:29
