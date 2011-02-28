@@ -1,0 +1,21 @@
+project --topLevelPackage com.malsolo.jshop
+persistence setup --provider HIBERNATE --database POSTGRES --hostName localhost --databaseName DSNP --userName WASDSNP --password wasdsnp
+entity --class ~.domain.Brand --testAutomatically 
+field string --fieldName name --notNull --sizeMin 1 --sizeMax 50
+field string --fieldName description --notNull --sizeMax 
+entity --class ~.domain.Kind --testAutomatically 
+field string --fieldName name --notNull --sizeMin 1 --sizeMax 50
+field string --fieldName description --notNull --sizeMax 250
+entity --class ~.domain.ElectricalAppliance --testAutomatically 
+field string --fieldName name --notNull --sizeMin 1 --sizeMax 50
+field string --fieldName description --notNull --sizeMax 250
+field string --fieldName model --notNull --sizeMax 150
+field number --fieldName earnings --type java.lang.Float --notNull
+field reference --fieldName kind --type ~.domain.Kind --notNull --cardinality MANY_TO_ONE 
+field reference --fieldName brand --type ~.domain.Brand --notNull --cardinality MANY_TO_ONE 
+controller all --package ~.web
+logging setup --level DEBUG 
+security setup
+perform clean
+perform eclipse
+// Spring Roo 1.1.1.RELEASE [rev 156ccd6] log closed at 2011-02-06 21:38:29

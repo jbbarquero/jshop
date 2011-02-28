@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import com.malsolo.jshop.domain.Kind;
 import javax.persistence.ManyToOne;
+import com.malsolo.jshop.domain.Brand;
 
 @RooJavaBean
 @RooToString
@@ -22,6 +23,17 @@ public class ElectricalAppliance {
     private String description;
 
     @NotNull
+    @Size(max = 150)
+    private String model;
+
+    @NotNull
+    private Float earnings;
+
+    @NotNull
     @ManyToOne
     private Kind kind;
+
+    @NotNull
+    @ManyToOne
+    private Brand brand;
 }

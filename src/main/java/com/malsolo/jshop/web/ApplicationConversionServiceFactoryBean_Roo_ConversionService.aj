@@ -3,6 +3,7 @@
 
 package com.malsolo.jshop.web;
 
+import com.malsolo.jshop.domain.Brand;
 import com.malsolo.jshop.domain.ElectricalAppliance;
 import com.malsolo.jshop.domain.Kind;
 import java.lang.String;
@@ -11,23 +12,32 @@ import org.springframework.format.FormatterRegistry;
 
 privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService {
     
-    Converter<ElectricalAppliance, String> ApplicationConversionServiceFactoryBean.getElectricalApplianceConverter() {
-        return new Converter<ElectricalAppliance, String>() {
-            public String convert(ElectricalAppliance source) {
-                return new StringBuilder().append(source.getName()).append(" ").append(source.getDescription()).toString();
+    Converter<Brand, String> ApplicationConversionServiceFactoryBean.getBrandConverter() {
+        return new Converter<Brand, String>() {
+            public String convert(Brand brand) {
+                return new StringBuilder().append(brand.getName()).append(" ").append(brand.getDescription()).toString();
             }
         };
     }
     
-    Converter<Kind, String> ApplicationConversionServiceFactoryBean.getKindConverter() {
-        return new Converter<Kind, String>() {
-            public String convert(Kind source) {
-                return new StringBuilder().append(source.getName()).append(" ").append(source.getDescription()).toString();
+    org.springframework.core.convert.converter.Converter<ElectricalAppliance, String> ApplicationConversionServiceFactoryBean.getElectricalApplianceConverter() {
+        return new org.springframework.core.convert.converter.Converter<ElectricalAppliance, String>() {
+            public String convert(ElectricalAppliance electricalappliance) {
+                return new StringBuilder().append(electricalappliance.getName()).append(" ").append(electricalappliance.getDescription()).append(" ").append(electricalappliance.getModel()).append(" ").append(electricalappliance.getEarnings()).toString();
+            }
+        };
+    }
+    
+    org.springframework.core.convert.converter.Converter<Kind, String> ApplicationConversionServiceFactoryBean.getKindConverter() {
+        return new org.springframework.core.convert.converter.Converter<Kind, String>() {
+            public String convert(Kind kind) {
+                return new StringBuilder().append(kind.getName()).append(" ").append(kind.getDescription()).toString();
             }
         };
     }
     
     public void ApplicationConversionServiceFactoryBean.installLabelConverters(FormatterRegistry registry) {
+        registry.addConverter(getBrandConverter());
         registry.addConverter(getElectricalApplianceConverter());
         registry.addConverter(getKindConverter());
     }

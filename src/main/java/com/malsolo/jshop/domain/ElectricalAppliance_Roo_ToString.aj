@@ -11,7 +11,10 @@ privileged aspect ElectricalAppliance_Roo_ToString {
         StringBuilder sb = new StringBuilder();
         sb.append("Name: ").append(getName()).append(", ");
         sb.append("Description: ").append(getDescription()).append(", ");
-        sb.append("Kind: ").append(getKind());
+        sb.append("Model: ").append(getModel()).append(", ");
+        sb.append("Earnings: ").append(getEarnings()).append(", ");
+        sb.append("Kind: ").append(getKind()).append(", ");
+        sb.append("Brand: ").append(getBrand());
         return sb.toString();
     }
     

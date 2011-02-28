@@ -4,7 +4,10 @@
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_com_malsolo_jshop_domain_ElectricalAppliance" object="${electricalappliance}" path="/electricalappliances" z="V3f52u2/GNrJ4q/qkMM2HnCxRf4=">
         <field:display field="name" id="s_com_malsolo_jshop_domain_ElectricalAppliance_name" object="${electricalappliance}" z="3hKe63aCLJnrNfuWvfi8q2Gz6I0="/>
+        <field:display field="brand" id="s_com_malsolo_jshop_domain_ElectricalAppliance_brand" object="${electricalappliance}" z="hgQHFmQ/e3h8NNYHJCRUlGYwJ0k="/>
         <field:display field="description" id="s_com_malsolo_jshop_domain_ElectricalAppliance_description" object="${electricalappliance}" z="w1IuvOKJFLlb9Bw6tNvu6w4i4aI="/>
+        <field:display field="model" id="s_com_malsolo_jshop_domain_ElectricalAppliance_model" object="${electricalappliance}" z="jLQHcFGSttXT0yZeKlgTcOwNvJo="/>
+        <field:display field="earnings" id="s_com_malsolo_jshop_domain_ElectricalAppliance_earnings" object="${electricalappliance}" z="pl8D/EdT31R5WIlCFodiFpC60yc="/>
         <field:display field="kind" id="s_com_malsolo_jshop_domain_ElectricalAppliance_kind" object="${electricalappliance}" z="e7wTbgf3fyCbAX8n7zyi6af1R/Q="/>
     </page:show>
 </div>

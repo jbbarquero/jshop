@@ -3,6 +3,7 @@
 
 package com.malsolo.jshop.domain;
 
+import com.malsolo.jshop.domain.BrandDataOnDemand;
 import com.malsolo.jshop.domain.ElectricalAppliance;
 import com.malsolo.jshop.domain.KindDataOnDemand;
 import java.util.List;
@@ -21,6 +22,9 @@ privileged aspect ElectricalApplianceDataOnDemand_Roo_DataOnDemand {
     @Autowired
     private KindDataOnDemand ElectricalApplianceDataOnDemand.kindDataOnDemand;
     
+    @Autowired
+    private BrandDataOnDemand ElectricalApplianceDataOnDemand.brandDataOnDemand;
+    
     public ElectricalAppliance ElectricalApplianceDataOnDemand.getNewTransientElectricalAppliance(int index) {
         com.malsolo.jshop.domain.ElectricalAppliance obj = new com.malsolo.jshop.domain.ElectricalAppliance();
         java.lang.String name = "name_" + index;
@@ -33,7 +37,14 @@ privileged aspect ElectricalApplianceDataOnDemand_Roo_DataOnDemand {
             description  = description.substring(0, 250);
         }
         obj.setDescription(description);
+        java.lang.String model = "model_" + index;
+        if (model.length() > 150) {
+            model  = model.substring(0, 150);
+        }
+        obj.setModel(model);
+        obj.setEarnings(new Integer(index).floatValue());
         obj.setKind(kindDataOnDemand.getRandomKind());
+        obj.setBrand(brandDataOnDemand.getRandomBrand());
         return obj;
     }
     

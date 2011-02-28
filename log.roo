@@ -1,16 +1,73 @@
-// Spring Roo 1.1.1.RELEASE [rev 156ccd6] log opened at 2011-02-06 17:39:00
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log opened at 2011-02-27 12:56:43
+q
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log closed at 2011-02-27 12:57:17
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log opened at 2011-02-27 12:57:22
+help
+q
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log closed at 2011-02-27 12:58:02
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log opened at 2011-02-27 12:58:08
+osgi obr url add --url http://spring-roo-repository.springsource.org/repository.xml
+osgi obr start --bundleSymbolicName org.springframework.roo.url.stream
+osgi obr url remove --url http://spring-roo-repository.springsource.org/repository.xml
+osgi obr url add --url http://spring-roo-repository.springsource.org/repository.xml
+osgi obr start --bundleSymbolicName org.springframework.roo.addon.propfiles
+osgi obr url remove --url http://spring-roo-repository.springsource.org/repository.xml
+osgi obr url add --url http://spring-roo-repository.springsource.org/repository.xml
+osgi obr start --bundleSymbolicName org.springframework.roo.addon.web.mvc.embedded
+osgi obr url remove --url http://spring-roo-repository.springsource.org/repository.xml
+osgi obr url add --url http://spring-roo-repository.springsource.org/repository.xml
+osgi obr start --bundleSymbolicName org.springframework.roo.addon.web.mvc.controller
+osgi obr url remove --url http://spring-roo-repository.springsource.org/repository.xml
+osgi obr url add --url http://spring-roo-repository.springsource.org/repository.xml
+osgi obr start --bundleSymbolicName org.springframework.roo.addon.web.selenium
+osgi obr url remove --url http://spring-roo-repository.springsource.org/repository.xml
+osgi obr url add --url http://spring-roo-repository.springsource.org/repository.xml
+osgi obr start --bundleSymbolicName org.springframework.roo.addon.email
+osgi obr url remove --url http://spring-roo-repository.springsource.org/repository.xml
+osgi obr url add --url http://spring-roo-repository.springsource.org/repository.xml
+osgi obr start --bundleSymbolicName org.springframework.roo.addon.json
+osgi obr url remove --url http://spring-roo-repository.springsource.org/repository.xml
+osgi obr url add --url http://spring-roo-repository.springsource.org/repository.xml
+osgi obr start --bundleSymbolicName org.springframework.roo.addon.entity
+osgi obr url remove --url http://spring-roo-repository.springsource.org/repository.xml
+osgi obr url add --url http://spring-roo-repository.springsource.org/repository.xml
+osgi obr start --bundleSymbolicName org.springframework.roo.addon.serializable
+osgi obr url remove --url http://spring-roo-repository.springsource.org/repository.xml
+osgi obr url add --url http://spring-roo-repository.springsource.org/repository.xml
+osgi obr start --bundleSymbolicName org.springframework.roo.addon.jpa
+osgi obr url remove --url http://spring-roo-repository.springsource.org/repository.xml
+osgi obr url add --url http://spring-roo-repository.springsource.org/repository.xml
+osgi obr start --bundleSymbolicName org.springframework.roo.metadata
+osgi obr url remove --url http://spring-roo-repository.springsource.org/repository.xml
+osgi obr url add --url http://spring-roo-repository.springsource.org/repository.xml
+osgi obr start --bundleSymbolicName org.springframework.roo.shell
+osgi obr url remove --url http://spring-roo-repository.springsource.org/repository.xml
+osgi obr url add --url http://spring-roo-repository.springsource.org/repository.xml
+osgi obr start --bundleSymbolicName org.springframework.roo.felix
+// [failed] addon upgrade all
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log opened at 2011-02-27 13:03:05
 hint
 project --topLevelPackage com.malsolo.jshop
-persistence setup --provider HIBERNATE --database HYPERSONIC_IN_MEMORY 
+persistence setup --provider HIBERNATE --database POSTGRES --hostName localhost --databaseName DSNP --userName WASDSNP --password wasdsnp
+entity --class ~.domain.Brand --testAutomatically 
+field string --fieldName name --notNull --sizeMin 1 --sizeMax 50
+field string --fieldName description --notNull --sizeMax 
 entity --class ~.domain.Kind --testAutomatically 
-field string name --notNull --sizeMin 1 --sizeMax 50
-field string description --notNull --sizeMax 250
+field string --fieldName name --notNull --sizeMin 1 --sizeMax 50
+field string --fieldName description --notNull --sizeMax 250
 entity --class ~.domain.ElectricalAppliance --testAutomatically 
-field string name --notNull --sizeMin 1 --sizeMax 50
-field string description --notNull --sizeMax 250 
+field string --fieldName name --notNull --sizeMin 1 --sizeMax 50
+field string --fieldName description --notNull --sizeMax 250
+field string --fieldName model --notNull --sizeMax 150
+field number --fieldName earnings --type java.lang.Float --notNull
 field reference --fieldName kind --type ~.domain.Kind --notNull --cardinality MANY_TO_ONE 
+field reference --fieldName brand --type ~.domain.Brand --notNull --cardinality MANY_TO_ONE 
 controller all --package ~.web
 logging setup --level DEBUG 
 security setup
 quit
-// Spring Roo 1.1.1.RELEASE [rev 156ccd6] log closed at 2011-02-06 21:38:29
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log closed at 2011-02-27 13:03:49
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log opened at 2011-02-27 13:05:20
+perform tests
+perform clean
+perform eclipse

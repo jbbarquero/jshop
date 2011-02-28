@@ -3,7 +3,9 @@
 
 package com.malsolo.jshop.domain;
 
+import com.malsolo.jshop.domain.Brand;
 import com.malsolo.jshop.domain.Kind;
+import java.lang.Float;
 import java.lang.String;
 
 privileged aspect ElectricalAppliance_Roo_JavaBean {
@@ -24,12 +26,36 @@ privileged aspect ElectricalAppliance_Roo_JavaBean {
         this.description = description;
     }
     
+    public String ElectricalAppliance.getModel() {
+        return this.model;
+    }
+    
+    public void ElectricalAppliance.setModel(String model) {
+        this.model = model;
+    }
+    
+    public Float ElectricalAppliance.getEarnings() {
+        return this.earnings;
+    }
+    
+    public void ElectricalAppliance.setEarnings(Float earnings) {
+        this.earnings = earnings;
+    }
+    
     public Kind ElectricalAppliance.getKind() {
         return this.kind;
     }
     
     public void ElectricalAppliance.setKind(Kind kind) {
         this.kind = kind;
+    }
+    
+    public Brand ElectricalAppliance.getBrand() {
+        return this.brand;
+    }
+    
+    public void ElectricalAppliance.setBrand(Brand brand) {
+        this.brand = brand;
     }
     
 }
