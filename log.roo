@@ -87,3 +87,6 @@ q
 entity --class ~.domain.Provider --testAutomatically 
 field string --notNull --sizeMin 1 --sizeMax 50 --fieldName name
 field string --notNull --sizeMax 250 --fieldName description
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log opened at 2011-03-01 21:55:46
+perform tests
+perform tests
