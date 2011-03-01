@@ -6,6 +6,7 @@ package com.malsolo.jshop.web;
 import com.malsolo.jshop.domain.Brand;
 import com.malsolo.jshop.domain.ElectricalAppliance;
 import com.malsolo.jshop.domain.Kind;
+import com.malsolo.jshop.domain.Provider;
 import java.lang.String;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.format.FormatterRegistry;
@@ -36,10 +37,19 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         };
     }
     
+    org.springframework.core.convert.converter.Converter<Provider, String> ApplicationConversionServiceFactoryBean.getProviderConverter() {
+        return new org.springframework.core.convert.converter.Converter<Provider, String>() {
+            public String convert(Provider provider) {
+                return new StringBuilder().append(provider.getName()).append(" ").append(provider.getDescription()).toString();
+            }
+        };
+    }
+    
     public void ApplicationConversionServiceFactoryBean.installLabelConverters(FormatterRegistry registry) {
         registry.addConverter(getBrandConverter());
         registry.addConverter(getElectricalApplianceConverter());
         registry.addConverter(getKindConverter());
+        registry.addConverter(getProviderConverter());
     }
     
     public void ApplicationConversionServiceFactoryBean.afterPropertiesSet() {

@@ -16,5 +16,9 @@
             <menu:item id="i_brand_new" messageCode="global_menu_new" url="/brands?form" z="elLlPhP1xJh1hr4pA86cwpzPXyM="/>
         <menu:item id="i_brand_list" messageCode="global_menu_list" url="/brands?page=1&amp;size=${empty param.size ? 10 : param.size}" z="Ew8SbM9jNLtY10kWQKkGh3zr6mE="/>
         </menu:category>
+    <menu:category id="c_provider" z="qZ+nkmjhdayV87fGbEw2hhp0V4o=">
+            <menu:item id="i_provider_new" messageCode="global_menu_new" url="/providers?form" z="5ew3C+GxwHBke11UPa8brbXBs9U="/>
+        <menu:item id="i_provider_list" messageCode="global_menu_list" url="/providers?page=1&amp;size=${empty param.size ? 10 : param.size}" z="TgJi++6a7c4vQ15mFdswicVulK0="/>
+        </menu:category>
     </menu:menu>
 </div>
