@@ -71,3 +71,19 @@ quit
 perform tests
 perform clean
 perform eclipse
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log opened at 2011-03-01 09:16:24
+perform tests
+q
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log closed at 2011-03-01 09:19:37
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log opened at 2011-03-01 10:22:54
+entity --class ~.domain.Provider --testAutomatically 
+field number --type java.lang.Integer --fieldName id
+field string --notNull --sizeMin 1 --sizeMax 50 --fieldName name
+field string --notNull --sizeMax 250 --fieldName description
+entity --class ~.domain.Provider --testAutomatically 
+q
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log closed at 2011-03-01 10:33:59
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log opened at 2011-03-01 10:34:31
+entity --class ~.domain.Provider --testAutomatically 
+field string --notNull --sizeMin 1 --sizeMax 50 --fieldName name
+field string --notNull --sizeMax 250 --fieldName description
