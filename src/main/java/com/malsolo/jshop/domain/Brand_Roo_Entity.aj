@@ -73,12 +73,6 @@ privileged aspect Brand_Roo_Entity {
     }
     
     @Transactional
-    public void Brand.clear() {
-        if (this.entityManager == null) this.entityManager = entityManager();
-        this.entityManager.clear();
-    }
-    
-    @Transactional
     public Brand Brand.merge() {
         if (this.entityManager == null) this.entityManager = entityManager();
         Brand merged = this.entityManager.merge(this);

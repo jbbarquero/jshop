@@ -8,6 +8,11 @@ import javax.validation.constraints.Size;
 import com.malsolo.jshop.domain.Kind;
 import javax.persistence.ManyToOne;
 import com.malsolo.jshop.domain.Brand;
+import java.util.Set;
+import com.malsolo.jshop.domain.StockLine;
+import java.util.HashSet;
+import javax.persistence.OneToMany;
+import javax.persistence.CascadeType;
 
 @RooJavaBean
 @RooToString
@@ -36,4 +41,7 @@ public class ElectricalAppliance {
     @NotNull
     @ManyToOne
     private Brand brand;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<StockLine> stockLines = new HashSet<StockLine>();
 }

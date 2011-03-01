@@ -6,6 +6,7 @@ package com.malsolo.jshop.web;
 import com.malsolo.jshop.domain.Brand;
 import com.malsolo.jshop.domain.ElectricalAppliance;
 import com.malsolo.jshop.domain.Kind;
+import com.malsolo.jshop.domain.StockLine;
 import java.io.UnsupportedEncodingException;
 import java.lang.Integer;
 import java.lang.Long;
@@ -28,74 +29,71 @@ import org.springframework.web.util.WebUtils;
 privileged aspect ElectricalApplianceController_Roo_Controller {
     
     @RequestMapping(method = RequestMethod.POST)
-    public String ElectricalApplianceController.create(@Valid ElectricalAppliance electricalAppliance, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-        if (bindingResult.hasErrors()) {
-            uiModel.addAttribute("electricalAppliance", electricalAppliance);
+    public String ElectricalApplianceController.create(@Valid ElectricalAppliance electricalAppliance, BindingResult result, Model model, HttpServletRequest request) {
+        if (result.hasErrors()) {
+            model.addAttribute("electricalAppliance", electricalAppliance);
             return "electricalappliances/create";
         }
-        uiModel.asMap().clear();
         electricalAppliance.persist();
-        return "redirect:/electricalappliances/" + encodeUrlPathSegment(electricalAppliance.getId().toString(), httpServletRequest);
+        return "redirect:/electricalappliances/" + encodeUrlPathSegment(electricalAppliance.getId().toString(), request);
     }
     
     @RequestMapping(params = "form", method = RequestMethod.GET)
-    public String ElectricalApplianceController.createForm(Model uiModel) {
-        uiModel.addAttribute("electricalAppliance", new ElectricalAppliance());
+    public String ElectricalApplianceController.createForm(Model model) {
+        model.addAttribute("electricalAppliance", new ElectricalAppliance());
         List dependencies = new ArrayList();
-        if (Kind.countKinds() == 0) {
-            dependencies.add(new String[]{"kind", "kinds"});
-        }
         if (Brand.countBrands() == 0) {
             dependencies.add(new String[]{"brand", "brands"});
         }
-        uiModel.addAttribute("dependencies", dependencies);
+        if (Kind.countKinds() == 0) {
+            dependencies.add(new String[]{"kind", "kinds"});
+        }
+        model.addAttribute("dependencies", dependencies);
         return "electricalappliances/create";
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public String ElectricalApplianceController.show(@PathVariable("id") Long id, Model uiModel) {
-        uiModel.addAttribute("electricalappliance", ElectricalAppliance.findElectricalAppliance(id));
-        uiModel.addAttribute("itemId", id);
+    public String ElectricalApplianceController.show(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("electricalappliance", ElectricalAppliance.findElectricalAppliance(id));
+        model.addAttribute("itemId", id);
         return "electricalappliances/show";
     }
     
     @RequestMapping(method = RequestMethod.GET)
-    public String ElectricalApplianceController.list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
+    public String ElectricalApplianceController.list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model model) {
         if (page != null || size != null) {
             int sizeNo = size == null ? 10 : size.intValue();
-            uiModel.addAttribute("electricalappliances", ElectricalAppliance.findElectricalApplianceEntries(page == null ? 0 : (page.intValue() - 1) * sizeNo, sizeNo));
+            model.addAttribute("electricalappliances", ElectricalAppliance.findElectricalApplianceEntries(page == null ? 0 : (page.intValue() - 1) * sizeNo, sizeNo));
             float nrOfPages = (float) ElectricalAppliance.countElectricalAppliances() / sizeNo;
-            uiModel.addAttribute("maxPages", (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
+            model.addAttribute("maxPages", (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
         } else {
-            uiModel.addAttribute("electricalappliances", ElectricalAppliance.findAllElectricalAppliances());
+            model.addAttribute("electricalappliances", ElectricalAppliance.findAllElectricalAppliances());
         }
         return "electricalappliances/list";
     }
     
     @RequestMapping(method = RequestMethod.PUT)
-    public String ElectricalApplianceController.update(@Valid ElectricalAppliance electricalAppliance, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-        if (bindingResult.hasErrors()) {
-            uiModel.addAttribute("electricalAppliance", electricalAppliance);
+    public String ElectricalApplianceController.update(@Valid ElectricalAppliance electricalAppliance, BindingResult result, Model model, HttpServletRequest request) {
+        if (result.hasErrors()) {
+            model.addAttribute("electricalAppliance", electricalAppliance);
             return "electricalappliances/update";
         }
-        uiModel.asMap().clear();
         electricalAppliance.merge();
-        return "redirect:/electricalappliances/" + encodeUrlPathSegment(electricalAppliance.getId().toString(), httpServletRequest);
+        return "redirect:/electricalappliances/" + encodeUrlPathSegment(electricalAppliance.getId().toString(), request);
     }
     
     @RequestMapping(value = "/{id}", params = "form", method = RequestMethod.GET)
-    public String ElectricalApplianceController.updateForm(@PathVariable("id") Long id, Model uiModel) {
-        uiModel.addAttribute("electricalAppliance", ElectricalAppliance.findElectricalAppliance(id));
+    public String ElectricalApplianceController.updateForm(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("electricalAppliance", ElectricalAppliance.findElectricalAppliance(id));
         return "electricalappliances/update";
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public String ElectricalApplianceController.delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
+    public String ElectricalApplianceController.delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model model) {
         ElectricalAppliance.findElectricalAppliance(id).remove();
-        uiModel.asMap().clear();
-        uiModel.addAttribute("page", (page == null) ? "1" : page.toString());
-        uiModel.addAttribute("size", (size == null) ? "10" : size.toString());
-        return "redirect:/electricalappliances";
+        model.addAttribute("page", (page == null) ? "1" : page.toString());
+        model.addAttribute("size", (size == null) ? "10" : size.toString());
+        return "redirect:/electricalappliances?page=" + ((page == null) ? "1" : page.toString()) + "&size=" + ((size == null) ? "10" : size.toString());
     }
     
     @ModelAttribute("brands")
@@ -103,18 +101,18 @@ privileged aspect ElectricalApplianceController_Roo_Controller {
         return Brand.findAllBrands();
     }
     
-    @ModelAttribute("electricalappliances")
-    public java.util.Collection<ElectricalAppliance> ElectricalApplianceController.populateElectricalAppliances() {
-        return ElectricalAppliance.findAllElectricalAppliances();
-    }
-    
     @ModelAttribute("kinds")
-    public java.util.Collection<Kind> ElectricalApplianceController.populateKinds() {
+    public Collection<Kind> ElectricalApplianceController.populateKinds() {
         return Kind.findAllKinds();
     }
     
-    String ElectricalApplianceController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
-        String enc = httpServletRequest.getCharacterEncoding();
+    @ModelAttribute("stocklines")
+    public Collection<StockLine> ElectricalApplianceController.populateStockLines() {
+        return StockLine.findAllStockLines();
+    }
+    
+    String ElectricalApplianceController.encodeUrlPathSegment(String pathSegment, HttpServletRequest request) {
+        String enc = request.getCharacterEncoding();
         if (enc == null) {
             enc = WebUtils.DEFAULT_CHARACTER_ENCODING;
         }

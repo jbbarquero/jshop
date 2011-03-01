@@ -9,5 +9,6 @@
         <field:display field="model" id="s_com_malsolo_jshop_domain_ElectricalAppliance_model" object="${electricalappliance}" z="jLQHcFGSttXT0yZeKlgTcOwNvJo="/>
         <field:display field="earnings" id="s_com_malsolo_jshop_domain_ElectricalAppliance_earnings" object="${electricalappliance}" z="pl8D/EdT31R5WIlCFodiFpC60yc="/>
         <field:display field="kind" id="s_com_malsolo_jshop_domain_ElectricalAppliance_kind" object="${electricalappliance}" z="e7wTbgf3fyCbAX8n7zyi6af1R/Q="/>
+    <field:display field="stockLines" id="s_com_malsolo_jshop_domain_ElectricalAppliance_stockLines" object="${electricalappliance}" z="i9tmfzqyvzHutRtoJVnSi5uv9os="/>
     </page:show>
 </div>

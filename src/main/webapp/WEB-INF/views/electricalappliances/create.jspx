@@ -9,6 +9,7 @@
         <field:textarea field="model" id="c_com_malsolo_jshop_domain_ElectricalAppliance_model" required="true" z="770QORasOSLsAGSCTXexHYxzNPY="/>
         <field:input field="earnings" id="c_com_malsolo_jshop_domain_ElectricalAppliance_earnings" required="true" validationMessageCode="field_invalid_number" z="5nsl6uK4GMfnPGkVXF3ZByAt5lc="/>
         <field:select field="kind" id="c_com_malsolo_jshop_domain_ElectricalAppliance_kind" itemValue="id" items="${kinds}" path="/kinds" required="true" z="yFQ/q/BZRsTQ0O8NwgCuJlZnK7s="/>
+    <field:simple field="stockLines" id="c_com_malsolo_jshop_domain_ElectricalAppliance_stockLines" messageCode="entity_reference_not_managed" messageCodeAttribute="Stock Line" z="ATgBsvKnJZ335tgTHnXaDIo5zH0="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_malsolo_jshop_domain_ElectricalAppliance" render="${not empty dependencies}" z="j52ToOgyB0QoLA1lmnDL6LatLzs="/>
 </div>

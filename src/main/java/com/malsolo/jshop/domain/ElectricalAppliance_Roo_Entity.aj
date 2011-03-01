@@ -73,12 +73,6 @@ privileged aspect ElectricalAppliance_Roo_Entity {
     }
     
     @Transactional
-    public void ElectricalAppliance.clear() {
-        if (this.entityManager == null) this.entityManager = entityManager();
-        this.entityManager.clear();
-    }
-    
-    @Transactional
     public ElectricalAppliance ElectricalAppliance.merge() {
         if (this.entityManager == null) this.entityManager = entityManager();
         ElectricalAppliance merged = this.entityManager.merge(this);
