@@ -29,74 +29,77 @@ import org.springframework.web.util.WebUtils;
 privileged aspect StockLineController_Roo_Controller {
     
     @RequestMapping(method = RequestMethod.POST)
-    public String StockLineController.create(@Valid StockLine stockLine, BindingResult result, Model model, HttpServletRequest request) {
-        if (result.hasErrors()) {
-            model.addAttribute("stockLine", stockLine);
-            addDateTimeFormatPatterns(model);
+    public String StockLineController.create(@Valid StockLine stockLine, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
+        if (bindingResult.hasErrors()) {
+            uiModel.addAttribute("stockLine", stockLine);
+            addDateTimeFormatPatterns(uiModel);
             return "stocklines/create";
         }
+        uiModel.asMap().clear();
         stockLine.persist();
-        return "redirect:/stocklines/" + encodeUrlPathSegment(stockLine.getId().toString(), request);
+        return "redirect:/stocklines/" + encodeUrlPathSegment(stockLine.getId().toString(), httpServletRequest);
     }
     
     @RequestMapping(params = "form", method = RequestMethod.GET)
-    public String StockLineController.createForm(Model model) {
-        model.addAttribute("stockLine", new StockLine());
-        addDateTimeFormatPatterns(model);
+    public String StockLineController.createForm(Model uiModel) {
+        uiModel.addAttribute("stockLine", new StockLine());
+        addDateTimeFormatPatterns(uiModel);
         List dependencies = new ArrayList();
         if (Provider.countProviders() == 0) {
             dependencies.add(new String[]{"provider", "providers"});
         }
-        model.addAttribute("dependencies", dependencies);
+        uiModel.addAttribute("dependencies", dependencies);
         return "stocklines/create";
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public String StockLineController.show(@PathVariable("id") Long id, Model model) {
-        addDateTimeFormatPatterns(model);
-        model.addAttribute("stockline", StockLine.findStockLine(id));
-        model.addAttribute("itemId", id);
+    public String StockLineController.show(@PathVariable("id") Long id, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
+        uiModel.addAttribute("stockline", StockLine.findStockLine(id));
+        uiModel.addAttribute("itemId", id);
         return "stocklines/show";
     }
     
     @RequestMapping(method = RequestMethod.GET)
-    public String StockLineController.list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model model) {
+    public String StockLineController.list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         if (page != null || size != null) {
             int sizeNo = size == null ? 10 : size.intValue();
-            model.addAttribute("stocklines", StockLine.findStockLineEntries(page == null ? 0 : (page.intValue() - 1) * sizeNo, sizeNo));
+            uiModel.addAttribute("stocklines", StockLine.findStockLineEntries(page == null ? 0 : (page.intValue() - 1) * sizeNo, sizeNo));
             float nrOfPages = (float) StockLine.countStockLines() / sizeNo;
-            model.addAttribute("maxPages", (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
+            uiModel.addAttribute("maxPages", (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
         } else {
-            model.addAttribute("stocklines", StockLine.findAllStockLines());
+            uiModel.addAttribute("stocklines", StockLine.findAllStockLines());
         }
-        addDateTimeFormatPatterns(model);
+        addDateTimeFormatPatterns(uiModel);
         return "stocklines/list";
     }
     
     @RequestMapping(method = RequestMethod.PUT)
-    public String StockLineController.update(@Valid StockLine stockLine, BindingResult result, Model model, HttpServletRequest request) {
-        if (result.hasErrors()) {
-            model.addAttribute("stockLine", stockLine);
-            addDateTimeFormatPatterns(model);
+    public String StockLineController.update(@Valid StockLine stockLine, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
+        if (bindingResult.hasErrors()) {
+            uiModel.addAttribute("stockLine", stockLine);
+            addDateTimeFormatPatterns(uiModel);
             return "stocklines/update";
         }
+        uiModel.asMap().clear();
         stockLine.merge();
-        return "redirect:/stocklines/" + encodeUrlPathSegment(stockLine.getId().toString(), request);
+        return "redirect:/stocklines/" + encodeUrlPathSegment(stockLine.getId().toString(), httpServletRequest);
     }
     
     @RequestMapping(value = "/{id}", params = "form", method = RequestMethod.GET)
-    public String StockLineController.updateForm(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("stockLine", StockLine.findStockLine(id));
-        addDateTimeFormatPatterns(model);
+    public String StockLineController.updateForm(@PathVariable("id") Long id, Model uiModel) {
+        uiModel.addAttribute("stockLine", StockLine.findStockLine(id));
+        addDateTimeFormatPatterns(uiModel);
         return "stocklines/update";
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public String StockLineController.delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model model) {
+    public String StockLineController.delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         StockLine.findStockLine(id).remove();
-        model.addAttribute("page", (page == null) ? "1" : page.toString());
-        model.addAttribute("size", (size == null) ? "10" : size.toString());
-        return "redirect:/stocklines?page=" + ((page == null) ? "1" : page.toString()) + "&size=" + ((size == null) ? "10" : size.toString());
+        uiModel.asMap().clear();
+        uiModel.addAttribute("page", (page == null) ? "1" : page.toString());
+        uiModel.addAttribute("size", (size == null) ? "10" : size.toString());
+        return "redirect:/stocklines";
     }
     
     @ModelAttribute("providers")
@@ -104,12 +107,17 @@ privileged aspect StockLineController_Roo_Controller {
         return Provider.findAllProviders();
     }
     
-    void StockLineController.addDateTimeFormatPatterns(Model model) {
-        model.addAttribute("stockLine_stockdate_date_format", DateTimeFormat.patternForStyle("S-", LocaleContextHolder.getLocale()));
+    @ModelAttribute("stocklines")
+    public java.util.Collection<StockLine> StockLineController.populateStockLines() {
+        return StockLine.findAllStockLines();
     }
     
-    String StockLineController.encodeUrlPathSegment(String pathSegment, HttpServletRequest request) {
-        String enc = request.getCharacterEncoding();
+    void StockLineController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("stockLine_stockdate_date_format", DateTimeFormat.patternForStyle("S-", LocaleContextHolder.getLocale()));
+    }
+    
+    String StockLineController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
+        String enc = httpServletRequest.getCharacterEncoding();
         if (enc == null) {
             enc = WebUtils.DEFAULT_CHARACTER_ENCODING;
         }

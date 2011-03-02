@@ -73,6 +73,12 @@ privileged aspect Kind_Roo_Entity {
     }
     
     @Transactional
+    public void Kind.clear() {
+        if (this.entityManager == null) this.entityManager = entityManager();
+        this.entityManager.clear();
+    }
+    
+    @Transactional
     public Kind Kind.merge() {
         if (this.entityManager == null) this.entityManager = entityManager();
         Kind merged = this.entityManager.merge(this);

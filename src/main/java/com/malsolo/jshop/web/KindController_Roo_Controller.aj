@@ -8,10 +8,12 @@ import java.io.UnsupportedEncodingException;
 import java.lang.Integer;
 import java.lang.Long;
 import java.lang.String;
+import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,67 +24,75 @@ import org.springframework.web.util.WebUtils;
 privileged aspect KindController_Roo_Controller {
     
     @RequestMapping(method = RequestMethod.POST)
-    public String KindController.create(@Valid Kind kind, BindingResult result, Model model, HttpServletRequest request) {
-        if (result.hasErrors()) {
-            model.addAttribute("kind", kind);
+    public String KindController.create(@Valid Kind kind, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
+        if (bindingResult.hasErrors()) {
+            uiModel.addAttribute("kind", kind);
             return "kinds/create";
         }
+        uiModel.asMap().clear();
         kind.persist();
-        return "redirect:/kinds/" + encodeUrlPathSegment(kind.getId().toString(), request);
+        return "redirect:/kinds/" + encodeUrlPathSegment(kind.getId().toString(), httpServletRequest);
     }
     
     @RequestMapping(params = "form", method = RequestMethod.GET)
-    public String KindController.createForm(Model model) {
-        model.addAttribute("kind", new Kind());
+    public String KindController.createForm(Model uiModel) {
+        uiModel.addAttribute("kind", new Kind());
         return "kinds/create";
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public String KindController.show(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("kind", Kind.findKind(id));
-        model.addAttribute("itemId", id);
+    public String KindController.show(@PathVariable("id") Long id, Model uiModel) {
+        uiModel.addAttribute("kind", Kind.findKind(id));
+        uiModel.addAttribute("itemId", id);
         return "kinds/show";
     }
     
     @RequestMapping(method = RequestMethod.GET)
-    public String KindController.list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model model) {
+    public String KindController.list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         if (page != null || size != null) {
             int sizeNo = size == null ? 10 : size.intValue();
-            model.addAttribute("kinds", Kind.findKindEntries(page == null ? 0 : (page.intValue() - 1) * sizeNo, sizeNo));
+            uiModel.addAttribute("kinds", Kind.findKindEntries(page == null ? 0 : (page.intValue() - 1) * sizeNo, sizeNo));
             float nrOfPages = (float) Kind.countKinds() / sizeNo;
-            model.addAttribute("maxPages", (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
+            uiModel.addAttribute("maxPages", (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
         } else {
-            model.addAttribute("kinds", Kind.findAllKinds());
+            uiModel.addAttribute("kinds", Kind.findAllKinds());
         }
         return "kinds/list";
     }
     
     @RequestMapping(method = RequestMethod.PUT)
-    public String KindController.update(@Valid Kind kind, BindingResult result, Model model, HttpServletRequest request) {
-        if (result.hasErrors()) {
-            model.addAttribute("kind", kind);
+    public String KindController.update(@Valid Kind kind, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
+        if (bindingResult.hasErrors()) {
+            uiModel.addAttribute("kind", kind);
             return "kinds/update";
         }
+        uiModel.asMap().clear();
         kind.merge();
-        return "redirect:/kinds/" + encodeUrlPathSegment(kind.getId().toString(), request);
+        return "redirect:/kinds/" + encodeUrlPathSegment(kind.getId().toString(), httpServletRequest);
     }
     
     @RequestMapping(value = "/{id}", params = "form", method = RequestMethod.GET)
-    public String KindController.updateForm(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("kind", Kind.findKind(id));
+    public String KindController.updateForm(@PathVariable("id") Long id, Model uiModel) {
+        uiModel.addAttribute("kind", Kind.findKind(id));
         return "kinds/update";
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public String KindController.delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model model) {
+    public String KindController.delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         Kind.findKind(id).remove();
-        model.addAttribute("page", (page == null) ? "1" : page.toString());
-        model.addAttribute("size", (size == null) ? "10" : size.toString());
-        return "redirect:/kinds?page=" + ((page == null) ? "1" : page.toString()) + "&size=" + ((size == null) ? "10" : size.toString());
+        uiModel.asMap().clear();
+        uiModel.addAttribute("page", (page == null) ? "1" : page.toString());
+        uiModel.addAttribute("size", (size == null) ? "10" : size.toString());
+        return "redirect:/kinds";
     }
     
-    String KindController.encodeUrlPathSegment(String pathSegment, HttpServletRequest request) {
-        String enc = request.getCharacterEncoding();
+    @ModelAttribute("kinds")
+    public Collection<Kind> KindController.populateKinds() {
+        return Kind.findAllKinds();
+    }
+    
+    String KindController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
+        String enc = httpServletRequest.getCharacterEncoding();
         if (enc == null) {
             enc = WebUtils.DEFAULT_CHARACTER_ENCODING;
         }

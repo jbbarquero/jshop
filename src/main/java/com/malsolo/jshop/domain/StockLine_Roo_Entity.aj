@@ -73,6 +73,12 @@ privileged aspect StockLine_Roo_Entity {
     }
     
     @Transactional
+    public void StockLine.clear() {
+        if (this.entityManager == null) this.entityManager = entityManager();
+        this.entityManager.clear();
+    }
+    
+    @Transactional
     public StockLine StockLine.merge() {
         if (this.entityManager == null) this.entityManager = entityManager();
         StockLine merged = this.entityManager.merge(this);

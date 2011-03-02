@@ -9,7 +9,8 @@
             <table:column id="c_com_malsolo_jshop_domain_ElectricalAppliance_description" property="description" z="j9YLKlyORAvfLKNBVbtG8c6yIfc="/>
             <table:column id="c_com_malsolo_jshop_domain_ElectricalAppliance_model" property="model" z="ppEefKy2RdjzM1FRUpXE6fsE/kg="/>
             <table:column id="c_com_malsolo_jshop_domain_ElectricalAppliance_earnings" property="earnings" z="3QBL6uefpY7roaqbfxbaFo4Ai64="/>
-            <table:column id="c_com_malsolo_jshop_domain_ElectricalAppliance_kind" property="kind" z="weQK2PahoqDrd9qNyEHXb8MyXsI="/>
+            
+        <table:column id="c_com_malsolo_jshop_domain_ElectricalAppliance_stockLines" property="stockLines" z="xTjLriIkUv7FnNL1CIhnqg7SED0="/>
         </table:table>
     </page:list>
 </div>

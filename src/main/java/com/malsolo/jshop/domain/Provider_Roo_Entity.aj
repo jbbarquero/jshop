@@ -73,6 +73,12 @@ privileged aspect Provider_Roo_Entity {
     }
     
     @Transactional
+    public void Provider.clear() {
+        if (this.entityManager == null) this.entityManager = entityManager();
+        this.entityManager.clear();
+    }
+    
+    @Transactional
     public Provider Provider.merge() {
         if (this.entityManager == null) this.entityManager = entityManager();
         Provider merged = this.entityManager.merge(this);

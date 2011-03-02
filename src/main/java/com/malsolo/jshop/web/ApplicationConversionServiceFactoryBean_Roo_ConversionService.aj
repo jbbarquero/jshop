@@ -14,52 +14,52 @@ import org.springframework.format.FormatterRegistry;
 
 privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService {
     
-    Converter<ElectricalAppliance, String> ApplicationConversionServiceFactoryBean.getElectricalApplianceConverter() {
-        return new Converter<ElectricalAppliance, String>() {
-            public String convert(ElectricalAppliance source) {
-                return new StringBuilder().append(source.getName()).append(" ").append(source.getDescription()).append(" ").append(source.getModel()).toString();
-            }
-        };
-    }
-    
     Converter<Brand, String> ApplicationConversionServiceFactoryBean.getBrandConverter() {
         return new Converter<Brand, String>() {
-            public String convert(Brand source) {
-                return new StringBuilder().append(source.getName()).append(" ").append(source.getDescription()).toString();
+            public String convert(Brand brand) {
+                return new StringBuilder().append(brand.getName()).append(" ").append(brand.getDescription()).toString();
             }
         };
     }
     
-    Converter<StockLine, String> ApplicationConversionServiceFactoryBean.getStockLineConverter() {
-        return new Converter<StockLine, String>() {
-            public String convert(StockLine source) {
-                return new StringBuilder().append(source.getQuantity()).append(" ").append(source.getCost()).append(" ").append(source.getStockDate()).toString();
+    org.springframework.core.convert.converter.Converter<ElectricalAppliance, String> ApplicationConversionServiceFactoryBean.getElectricalApplianceConverter() {
+        return new org.springframework.core.convert.converter.Converter<ElectricalAppliance, String>() {
+            public String convert(ElectricalAppliance electricalappliance) {
+                return new StringBuilder().append(electricalappliance.getName()).append(" ").append(electricalappliance.getDescription()).append(" ").append(electricalappliance.getModel()).append(" ").append(electricalappliance.getEarnings()).toString();
             }
         };
     }
     
-    Converter<Provider, String> ApplicationConversionServiceFactoryBean.getProviderConverter() {
-        return new Converter<Provider, String>() {
-            public String convert(Provider source) {
-                return new StringBuilder().append(source.getName()).append(" ").append(source.getDescription()).toString();
+    org.springframework.core.convert.converter.Converter<Kind, String> ApplicationConversionServiceFactoryBean.getKindConverter() {
+        return new org.springframework.core.convert.converter.Converter<Kind, String>() {
+            public String convert(Kind kind) {
+                return new StringBuilder().append(kind.getName()).append(" ").append(kind.getDescription()).toString();
             }
         };
     }
     
-    Converter<Kind, String> ApplicationConversionServiceFactoryBean.getKindConverter() {
-        return new Converter<Kind, String>() {
-            public String convert(Kind source) {
-                return new StringBuilder().append(source.getName()).append(" ").append(source.getDescription()).toString();
+    org.springframework.core.convert.converter.Converter<Provider, String> ApplicationConversionServiceFactoryBean.getProviderConverter() {
+        return new org.springframework.core.convert.converter.Converter<Provider, String>() {
+            public String convert(Provider provider) {
+                return new StringBuilder().append(provider.getName()).append(" ").append(provider.getDescription()).toString();
+            }
+        };
+    }
+    
+    org.springframework.core.convert.converter.Converter<StockLine, String> ApplicationConversionServiceFactoryBean.getStockLineConverter() {
+        return new org.springframework.core.convert.converter.Converter<StockLine, String>() {
+            public String convert(StockLine stockline) {
+                return new StringBuilder().append(stockline.getQuantity()).append(" ").append(stockline.getCost()).append(" ").append(stockline.getStockDate()).toString();
             }
         };
     }
     
     public void ApplicationConversionServiceFactoryBean.installLabelConverters(FormatterRegistry registry) {
-        registry.addConverter(getElectricalApplianceConverter());
         registry.addConverter(getBrandConverter());
-        registry.addConverter(getStockLineConverter());
-        registry.addConverter(getProviderConverter());
+        registry.addConverter(getElectricalApplianceConverter());
         registry.addConverter(getKindConverter());
+        registry.addConverter(getProviderConverter());
+        registry.addConverter(getStockLineConverter());
     }
     
     public void ApplicationConversionServiceFactoryBean.afterPropertiesSet() {
