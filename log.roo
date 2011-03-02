@@ -89,7 +89,5 @@ field string --notNull --sizeMin 1 --sizeMax 50 --fieldName name
 field string --notNull --sizeMax 250 --fieldName description
 // Spring Roo 1.1.2.RELEASE [rev fbc33bb] log opened at 2011-03-01 21:55:46
 perform tests
-perform tests
-// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log opened at 2011-03-02 00:55:08
-perform tests
-// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log closed at 2011-03-02 01:25:45
+// Spring Roo 1.1.1.RELEASE [rev 156ccd6] log opened at 2011-03-02 08:39:04
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log opened at 2011-03-02 20:26:50
