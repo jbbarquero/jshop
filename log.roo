@@ -91,3 +91,6 @@ field string --notNull --sizeMax 250 --fieldName description
 perform tests
 // Spring Roo 1.1.1.RELEASE [rev 156ccd6] log opened at 2011-03-02 08:39:04
 // Spring Roo 1.1.2.RELEASE [rev fbc33bb] log opened at 2011-03-02 20:26:50
+perform tests
+persistence setup --provider HIBERNATE --database POSTGRES --hostName localhost --databaseName DSNP --userName WASDSNP --password wasdsnp
+perform tests
