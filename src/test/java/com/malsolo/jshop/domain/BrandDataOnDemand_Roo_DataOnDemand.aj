@@ -23,7 +23,6 @@ privileged aspect BrandDataOnDemand_Roo_DataOnDemand {
             name  = name.substring(0, 50);
         }
         obj.setName(name);
-        obj.setDescription("description_" + index);
         return obj;
     }
     

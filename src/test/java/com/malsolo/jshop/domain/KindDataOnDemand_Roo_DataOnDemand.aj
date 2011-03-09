@@ -23,11 +23,6 @@ privileged aspect KindDataOnDemand_Roo_DataOnDemand {
             name  = name.substring(0, 50);
         }
         obj.setName(name);
-        java.lang.String description = "description_" + index;
-        if (description.length() > 250) {
-            description  = description.substring(0, 250);
-        }
-        obj.setDescription(description);
         return obj;
     }
     

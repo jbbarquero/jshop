@@ -114,4 +114,49 @@ exit
 // Spring Roo 1.1.2.RELEASE [rev fbc33bb] log opened at 2011-03-02 20:43:31
 exit
 // Spring Roo 1.1.2.RELEASE [rev fbc33bb] log closed at 2011-03-02 20:44:48
->>>>>>> 97016cb85d6a673556ef2175a56c5e574324c8cb
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log opened at 2011-03-08 20:01:32
+quit
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log closed at 2011-03-08 20:05:13
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log opened at 2011-03-08 20:05:22
+quit
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log closed at 2011-03-08 20:05:30
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log opened at 2011-03-08 20:07:27
+quit
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log closed at 2011-03-08 20:07:41
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log opened at 2011-03-08 20:08:32
+quit
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log closed at 2011-03-08 20:08:42
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log opened at 2011-03-08 20:15:10
+quit
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log closed at 2011-03-08 20:15:47
+q
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log closed at 2011-03-09 19:55:46
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log opened at 2011-03-09 19:58:25
+field reference --type ~.domain.ElectricalAppliance --fieldName electrialAppliance --class ~.domain.StockLine 
+exit
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log closed at 2011-03-09 20:03:21
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log opened at 2011-03-09 20:11:41
+finder list --class ~.domain.ElectricalAppliance 
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log opened at 2011-03-09 20:15:49
+finder list --class ~.domain.StockLine 
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log opened at 2011-03-09 20:39:00
+finder add --class ~.domain.ElectricalAppliance --finderName findElectricalAppliancesByBrandandKindandModelLike
+finder add --class ~.domain.ElectricalAppliance --finderName findElectricalAppliancesByBrandandKindAndModelLike
+finder add --class ~.domain.ElectricalAppliance --finderName findElectricalAppliancesByBrandAndKindAndModelLike
+finder add --class ~.domain.StockLine --finderName findStockLinesByCostBetweenAndProviderAndQuantityBetweenAndStockDateBetween
+q
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log closed at 2011-03-09 20:41:39
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log opened at 2011-03-09 20:43:40
+finder add --class ~.domain.ElectricalAppliance --finderName findElectricalAppliancesByBrandOrKindOrModelLike
+finder add --class ~.domain.StockLine --finderName findStockLinesByCostBetweenOrProviderOrQuantityBetweenOrStockDateBetween
+q
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log closed at 2011-03-09 20:46:08
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log opened at 2011-03-09 21:02:52
+exit
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log closed at 2011-03-09 21:03:14
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log opened at 2011-03-09 21:04:30
+exit
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log closed at 2011-03-09 21:07:35
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log opened at 2011-03-09 21:09:42
+q
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log closed at 2011-03-09 21:10:37

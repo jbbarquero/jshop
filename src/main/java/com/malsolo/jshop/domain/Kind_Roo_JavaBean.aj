@@ -15,12 +15,4 @@ privileged aspect Kind_Roo_JavaBean {
         this.name = name;
     }
     
-    public String Kind.getDescription() {
-        return this.description;
-    }
-    
-    public void Kind.setDescription(String description) {
-        this.description = description;
-    }
-    
 }

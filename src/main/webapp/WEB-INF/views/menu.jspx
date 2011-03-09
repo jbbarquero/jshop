@@ -7,6 +7,11 @@
         <menu:category id="c_electricalappliance" z="NewkHG+n93CarCqGDb0WlxG7I6c=">
             <menu:item id="i_electricalappliance_new" messageCode="global_menu_new" url="/electricalappliances?form" z="a0L2fPvN7vjE+wBN1SJ+zO/U6P8="/>
         <menu:item id="i_electricalappliance_list" messageCode="global_menu_list" url="/electricalappliances?page=1&amp;size=${empty param.size ? 10 : param.size}" z="GNVGqKJcOSLa9un9xtqsf/cQbrc="/>
+        
+        
+        
+        
+        <menu:item id="fi_electricalappliance_brandandkindandmodellike" messageCode="global_menu_find" url="/electricalappliances?find=ByBrandAndKindAndModelLike&amp;form" z="SLPVTgrjsGCkL7gOmUrGsUAfk9k="/>
         </menu:category>
     <menu:category id="c_kind" z="hodiThI02k40I+QAzJZjsqA3uDM=">
             <menu:item id="i_kind_new" messageCode="global_menu_new" url="/kinds?form" z="KnEHIqUk8ubDOIBzgY3LHr+hSTs="/>
@@ -23,6 +28,11 @@
     <menu:category id="c_stockline" z="OZO9As8Svlqsurfk6tuew1JmxwU=">
             <menu:item id="i_stockline_new" messageCode="global_menu_new" url="/stocklines?form" z="/ItKpmoeDjBOvkXlFB2ox7w9IpM="/>
         <menu:item id="i_stockline_list" messageCode="global_menu_list" url="/stocklines?page=1&amp;size=${empty param.size ? 10 : param.size}" z="da7w45uEpBKBC991cgTfXRy1ZjY="/>
+        
+        
+        
+        
+        <menu:item id="fi_stockline_costbetweenandproviderandquantitybetweenandstockdatebetween" messageCode="global_menu_find" url="/stocklines?find=ByCostBetweenAndProviderAndQuantityBetweenAndStockDateBetween&amp;form" z="2dwK/J7cKPuBhG0FGTwa70min3E="/>
         </menu:category>
     </menu:menu>
 </div>

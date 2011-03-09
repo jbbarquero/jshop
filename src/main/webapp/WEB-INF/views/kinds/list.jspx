@@ -5,7 +5,7 @@
     <page:list id="pl_com_malsolo_jshop_domain_Kind" items="${kinds}" z="yHU2FIJ48modeB+BkJSOjkAQjo4=">
         <table:table data="${kinds}" id="l_com_malsolo_jshop_domain_Kind" path="/kinds" z="hufq8mIQtmhLflIcDDRHnLO9tvg=">
             <table:column id="c_com_malsolo_jshop_domain_Kind_name" property="name" z="mmSmhNsIELQvF6TBBgZEmONAytI="/>
-            <table:column id="c_com_malsolo_jshop_domain_Kind_description" property="description" z="ujpxJt79Oc6SC87OOdIgRl4Oj0g="/>
+            
         </table:table>
     </page:list>
 </div>

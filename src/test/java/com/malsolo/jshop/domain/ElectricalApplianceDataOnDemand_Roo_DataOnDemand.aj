@@ -27,11 +27,6 @@ privileged aspect ElectricalApplianceDataOnDemand_Roo_DataOnDemand {
     
     public ElectricalAppliance ElectricalApplianceDataOnDemand.getNewTransientElectricalAppliance(int index) {
         com.malsolo.jshop.domain.ElectricalAppliance obj = new com.malsolo.jshop.domain.ElectricalAppliance();
-        java.lang.String name = "name_" + index;
-        if (name.length() > 50) {
-            name  = name.substring(0, 50);
-        }
-        obj.setName(name);
         java.lang.String description = "description_" + index;
         if (description.length() > 250) {
             description  = description.substring(0, 250);

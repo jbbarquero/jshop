@@ -9,7 +9,6 @@ privileged aspect ElectricalAppliance_Roo_ToString {
     
     public String ElectricalAppliance.toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Name: ").append(getName()).append(", ");
         sb.append("Description: ").append(getDescription()).append(", ");
         sb.append("Model: ").append(getModel()).append(", ");
         sb.append("Earnings: ").append(getEarnings()).append(", ");

@@ -13,4 +13,13 @@
 <definition extends="default" name="stocklines/update">
         <put-attribute name="body" value="/WEB-INF/views/stocklines/update.jspx"/>
     </definition>
+<definition extends="default" name="stocklines/findStockLinesByCostBetweenAndProviderAndQuantityBetweenAndStockDateBetween">
+        <put-attribute name="body" value="/WEB-INF/views/stocklines/findStockLinesByCostBetweenAndProviderAndQuantityBetweenAndStockDateBetween.jspx"/>
+    </definition>
+<definition extends="default" name="stocklines/findStockLinesByCostBetweenOrProviderOrQuantityBetweenOrStockDateBetween">
+        <put-attribute name="body" value="/WEB-INF/views/stocklines/findStockLinesByCostBetweenOrProviderOrQuantityBetweenOrStockDateBetween.jspx"/>
+    </definition>
+<definition extends="default" name="stocklines/findStockLinesByCostBetweenOrProviderOrQuantityBetween">
+        <put-attribute name="body" value="/WEB-INF/views/stocklines/findStockLinesByCostBetweenOrProviderOrQuantityBetween.jspx"/>
+    </definition>
 </tiles-definitions>

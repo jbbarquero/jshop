@@ -16,12 +16,8 @@ import javax.persistence.CascadeType;
 
 @RooJavaBean
 @RooToString
-@RooEntity
+@RooEntity(finders = { "findElectricalAppliancesByBrandAndKindAndModelLike" })
 public class ElectricalAppliance {
-
-    @NotNull
-    @Size(min = 1, max = 50)
-    private String name;
 
     @NotNull
     @Size(max = 250)
@@ -42,6 +38,6 @@ public class ElectricalAppliance {
     @ManyToOne
     private Brand brand;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "electrialAppliance")
     private Set<StockLine> stockLines = new HashSet<StockLine>();
 }

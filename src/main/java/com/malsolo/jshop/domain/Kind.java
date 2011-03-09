@@ -15,7 +15,4 @@ public class Kind {
     @Size(min = 1, max = 50)
     private String name;
 
-    @NotNull
-    @Size(max = 250)
-    private String description;
 }

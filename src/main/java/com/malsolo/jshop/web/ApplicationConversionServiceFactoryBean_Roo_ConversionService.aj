@@ -17,7 +17,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     Converter<Brand, String> ApplicationConversionServiceFactoryBean.getBrandConverter() {
         return new Converter<Brand, String>() {
             public String convert(Brand brand) {
-                return new StringBuilder().append(brand.getName()).append(" ").append(brand.getDescription()).toString();
+                return new StringBuilder().append(brand.getName()).toString();
             }
         };
     }
@@ -25,7 +25,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     org.springframework.core.convert.converter.Converter<ElectricalAppliance, String> ApplicationConversionServiceFactoryBean.getElectricalApplianceConverter() {
         return new org.springframework.core.convert.converter.Converter<ElectricalAppliance, String>() {
             public String convert(ElectricalAppliance electricalappliance) {
-                return new StringBuilder().append(electricalappliance.getName()).append(" ").append(electricalappliance.getDescription()).append(" ").append(electricalappliance.getModel()).append(" ").append(electricalappliance.getEarnings()).toString();
+                return new StringBuilder().append(electricalappliance.getDescription()).append(" ").append(electricalappliance.getModel()).append(" ").append(electricalappliance.getEarnings()).toString();
             }
         };
     }
@@ -33,7 +33,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     org.springframework.core.convert.converter.Converter<Kind, String> ApplicationConversionServiceFactoryBean.getKindConverter() {
         return new org.springframework.core.convert.converter.Converter<Kind, String>() {
             public String convert(Kind kind) {
-                return new StringBuilder().append(kind.getName()).append(" ").append(kind.getDescription()).toString();
+                return new StringBuilder().append(kind.getName()).toString();
             }
         };
     }

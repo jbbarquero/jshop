@@ -9,8 +9,7 @@ privileged aspect Kind_Roo_ToString {
     
     public String Kind.toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Name: ").append(getName()).append(", ");
-        sb.append("Description: ").append(getDescription());
+        sb.append("Name: ").append(getName());
         return sb.toString();
     }
     

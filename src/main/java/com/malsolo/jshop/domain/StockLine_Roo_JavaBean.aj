@@ -3,6 +3,7 @@
 
 package com.malsolo.jshop.domain;
 
+import com.malsolo.jshop.domain.ElectricalAppliance;
 import com.malsolo.jshop.domain.Provider;
 import java.lang.Double;
 import java.lang.Integer;
@@ -40,6 +41,14 @@ privileged aspect StockLine_Roo_JavaBean {
     
     public void StockLine.setProvider(Provider provider) {
         this.provider = provider;
+    }
+    
+    public ElectricalAppliance StockLine.getElectrialAppliance() {
+        return this.electrialAppliance;
+    }
+    
+    public void StockLine.setElectrialAppliance(ElectricalAppliance electrialAppliance) {
+        this.electrialAppliance = electrialAppliance;
     }
     
 }

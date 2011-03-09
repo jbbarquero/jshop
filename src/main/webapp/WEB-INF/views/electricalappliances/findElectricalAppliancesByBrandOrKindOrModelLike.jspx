@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:find finderName="ByBrandOrKindOrModelLike" id="ff_com_malsolo_jshop_domain_ElectricalAppliance" path="/electricalappliances" z="HZeNBpIx9El+gUNs3+C2KkRcr7o=">
+        <field:select disableFormBinding="true" field="brand" id="f_com_malsolo_jshop_domain_ElectricalAppliance_brand" itemValue="id" items="${brands}" path="/brands" required="true" z="krcgmZ8aPU55OM2CpNXf1mUF/a0="/>
+        <field:select disableFormBinding="true" field="kind" id="f_com_malsolo_jshop_domain_ElectricalAppliance_kind" itemValue="id" items="${kinds}" path="/kinds" required="true" z="kD1HZkn4OLdLmbmLRgI+A+spcw8="/>
+        <field:input disableFormBinding="true" field="model" id="f_com_malsolo_jshop_domain_ElectricalAppliance_model" max="150" required="true" z="IH2BInDithFIje1AUg7yuaKzJAQ="/>
+    </form:find>
+</div>

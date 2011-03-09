@@ -3,19 +3,22 @@
 
 package com.malsolo.jshop.web;
 
+import com.malsolo.jshop.domain.ElectricalAppliance;
 import com.malsolo.jshop.domain.Provider;
 import com.malsolo.jshop.domain.StockLine;
 import java.io.UnsupportedEncodingException;
+import java.lang.Double;
 import java.lang.Integer;
 import java.lang.Long;
 import java.lang.String;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import org.joda.time.format.DateTimeFormat;
 import org.springframework.context.i18n.LocaleContextHolder;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -102,8 +105,27 @@ privileged aspect StockLineController_Roo_Controller {
         return "redirect:/stocklines";
     }
     
+    @RequestMapping(params = { "find=ByCostBetweenAndProviderAndQuantityBetweenAndStockDateBetween", "form" }, method = RequestMethod.GET)
+    public String StockLineController.findStockLinesByCostBetweenAndProviderAndQuantityBetweenAndStockDateBetweenForm(Model uiModel) {
+        uiModel.addAttribute("providers", Provider.findAllProviders());
+        addDateTimeFormatPatterns(uiModel);
+        return "stocklines/findStockLinesByCostBetweenAndProviderAndQuantityBetweenAndStockDateBetween";
+    }
+    
+    @RequestMapping(params = "find=ByCostBetweenAndProviderAndQuantityBetweenAndStockDateBetween", method = RequestMethod.GET)
+    public String StockLineController.findStockLinesByCostBetweenAndProviderAndQuantityBetweenAndStockDateBetween(@RequestParam("minCost") Double minCost, @RequestParam("maxCost") Double maxCost, @RequestParam("provider") Provider provider, @RequestParam("minQuantity") Integer minQuantity, @RequestParam("maxQuantity") Integer maxQuantity, @RequestParam("minStockDate") @DateTimeFormat(style = "S-") Date minStockDate, @RequestParam("maxStockDate") @DateTimeFormat(style = "S-") Date maxStockDate, Model uiModel) {
+        uiModel.addAttribute("stocklines", StockLine.findStockLinesByCostBetweenAndProviderAndQuantityBetweenAndStockDateBetween(minCost, maxCost, provider, minQuantity, maxQuantity, minStockDate, maxStockDate).getResultList());
+        addDateTimeFormatPatterns(uiModel);
+        return "stocklines/list";
+    }
+    
+    @ModelAttribute("electricalappliances")
+    public Collection<ElectricalAppliance> StockLineController.populateElectricalAppliances() {
+        return ElectricalAppliance.findAllElectricalAppliances();
+    }
+    
     @ModelAttribute("providers")
-    public Collection<Provider> StockLineController.populateProviders() {
+    public java.util.Collection<Provider> StockLineController.populateProviders() {
         return Provider.findAllProviders();
     }
     
@@ -113,7 +135,9 @@ privileged aspect StockLineController_Roo_Controller {
     }
     
     void StockLineController.addDateTimeFormatPatterns(Model uiModel) {
-        uiModel.addAttribute("stockLine_stockdate_date_format", DateTimeFormat.patternForStyle("S-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("stockLine_maxstockdate_date_format", org.joda.time.format.DateTimeFormat.patternForStyle("S-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("stockLine_minstockdate_date_format", org.joda.time.format.DateTimeFormat.patternForStyle("S-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("stockLine_stockdate_date_format", org.joda.time.format.DateTimeFormat.patternForStyle("S-", LocaleContextHolder.getLocale()));
     }
     
     String StockLineController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

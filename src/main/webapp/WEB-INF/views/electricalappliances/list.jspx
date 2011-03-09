@@ -4,13 +4,16 @@
     <jsp:output omit-xml-declaration="yes"/>
     <page:list id="pl_com_malsolo_jshop_domain_ElectricalAppliance" items="${electricalappliances}" z="+/r3ad036z0b7P7+jDxvRhLp8ns=">
         <table:table data="${electricalappliances}" id="l_com_malsolo_jshop_domain_ElectricalAppliance" path="/electricalappliances" z="aid8CjPpld+HcSVTZ1lqePYjRck=">
-            <table:column id="c_com_malsolo_jshop_domain_ElectricalAppliance_name" property="name" z="ju0reT2hFobyUch+EwtjB89T3bg="/>
+            
             <table:column id="c_com_malsolo_jshop_domain_ElectricalAppliance_brand" property="brand" z="EoZ1fS7Xblu9mM9YPzFpuSojrFI="/>
             <table:column id="c_com_malsolo_jshop_domain_ElectricalAppliance_description" property="description" z="j9YLKlyORAvfLKNBVbtG8c6yIfc="/>
             <table:column id="c_com_malsolo_jshop_domain_ElectricalAppliance_model" property="model" z="ppEefKy2RdjzM1FRUpXE6fsE/kg="/>
             <table:column id="c_com_malsolo_jshop_domain_ElectricalAppliance_earnings" property="earnings" z="3QBL6uefpY7roaqbfxbaFo4Ai64="/>
             
         <table:column id="c_com_malsolo_jshop_domain_ElectricalAppliance_stockLines" property="stockLines" z="xTjLriIkUv7FnNL1CIhnqg7SED0="/>
+        
+        
+        <table:column id="c_com_malsolo_jshop_domain_ElectricalAppliance_kind" property="kind" z="weQK2PahoqDrd9qNyEHXb8MyXsI="/>
         </table:table>
     </page:list>
 </div>

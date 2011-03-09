@@ -13,4 +13,13 @@
 <definition extends="default" name="electricalappliances/update">
         <put-attribute name="body" value="/WEB-INF/views/electricalappliances/update.jspx"/>
     </definition>
+<definition extends="default" name="electricalappliances/findElectricalAppliancesByBrandAndKindAndModelLike">
+        <put-attribute name="body" value="/WEB-INF/views/electricalappliances/findElectricalAppliancesByBrandAndKindAndModelLike.jspx"/>
+    </definition>
+<definition extends="default" name="electricalappliances/findElectricalAppliancesByBrandOrKindOrModelLike">
+        <put-attribute name="body" value="/WEB-INF/views/electricalappliances/findElectricalAppliancesByBrandOrKindOrModelLike.jspx"/>
+    </definition>
+<definition extends="default" name="electricalappliances/findElectricalAppliancesByBrandOrKind">
+        <put-attribute name="body" value="/WEB-INF/views/electricalappliances/findElectricalAppliancesByBrandOrKind.jspx"/>
+    </definition>
 </tiles-definitions>
