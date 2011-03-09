@@ -7,6 +7,7 @@ import com.malsolo.jshop.domain.Brand;
 import com.malsolo.jshop.domain.ElectricalAppliance;
 import com.malsolo.jshop.domain.Kind;
 import com.malsolo.jshop.domain.Provider;
+import com.malsolo.jshop.domain.StockLine;
 import java.lang.String;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.format.FormatterRegistry;
@@ -45,11 +46,20 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         };
     }
     
+    org.springframework.core.convert.converter.Converter<StockLine, String> ApplicationConversionServiceFactoryBean.getStockLineConverter() {
+        return new org.springframework.core.convert.converter.Converter<StockLine, String>() {
+            public String convert(StockLine stockline) {
+                return new StringBuilder().append(stockline.getQuantity()).append(" ").append(stockline.getCost()).append(" ").append(stockline.getStockDate()).toString();
+            }
+        };
+    }
+    
     public void ApplicationConversionServiceFactoryBean.installLabelConverters(FormatterRegistry registry) {
         registry.addConverter(getBrandConverter());
         registry.addConverter(getElectricalApplianceConverter());
         registry.addConverter(getKindConverter());
         registry.addConverter(getProviderConverter());
+        registry.addConverter(getStockLineConverter());
     }
     
     public void ApplicationConversionServiceFactoryBean.afterPropertiesSet() {

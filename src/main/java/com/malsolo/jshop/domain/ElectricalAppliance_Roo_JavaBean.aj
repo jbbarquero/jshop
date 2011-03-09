@@ -5,8 +5,10 @@ package com.malsolo.jshop.domain;
 
 import com.malsolo.jshop.domain.Brand;
 import com.malsolo.jshop.domain.Kind;
+import com.malsolo.jshop.domain.StockLine;
 import java.lang.Float;
 import java.lang.String;
+import java.util.Set;
 
 privileged aspect ElectricalAppliance_Roo_JavaBean {
     
@@ -56,6 +58,14 @@ privileged aspect ElectricalAppliance_Roo_JavaBean {
     
     public void ElectricalAppliance.setBrand(Brand brand) {
         this.brand = brand;
+    }
+    
+    public Set<StockLine> ElectricalAppliance.getStockLines() {
+        return this.stockLines;
+    }
+    
+    public void ElectricalAppliance.setStockLines(Set<StockLine> stockLines) {
+        this.stockLines = stockLines;
     }
     
 }

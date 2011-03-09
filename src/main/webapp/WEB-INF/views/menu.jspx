@@ -20,5 +20,9 @@
             <menu:item id="i_provider_new" messageCode="global_menu_new" url="/providers?form" z="5ew3C+GxwHBke11UPa8brbXBs9U="/>
         <menu:item id="i_provider_list" messageCode="global_menu_list" url="/providers?page=1&amp;size=${empty param.size ? 10 : param.size}" z="TgJi++6a7c4vQ15mFdswicVulK0="/>
         </menu:category>
+    <menu:category id="c_stockline" z="OZO9As8Svlqsurfk6tuew1JmxwU=">
+            <menu:item id="i_stockline_new" messageCode="global_menu_new" url="/stocklines?form" z="/ItKpmoeDjBOvkXlFB2ox7w9IpM="/>
+        <menu:item id="i_stockline_list" messageCode="global_menu_list" url="/stocklines?page=1&amp;size=${empty param.size ? 10 : param.size}" z="da7w45uEpBKBC991cgTfXRy1ZjY="/>
+        </menu:category>
     </menu:menu>
 </div>

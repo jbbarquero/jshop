@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_malsolo_jshop_domain_StockLine" items="${stocklines}" z="8j43mkG/TirVtkZL3Btj1aIuhXE=">
+        <table:table data="${stocklines}" id="l_com_malsolo_jshop_domain_StockLine" path="/stocklines" z="3HjlYE2d+72dc2HuoqxTFKcaTsE=">
+            <table:column id="c_com_malsolo_jshop_domain_StockLine_quantity" property="quantity" z="K5f/1t7FMee/60/VpT7GJlylFow="/>
+            <table:column id="c_com_malsolo_jshop_domain_StockLine_cost" property="cost" z="XasGeD6Kvzdm9CFjmBijEyvp5+M="/>
+            <table:column id="c_com_malsolo_jshop_domain_StockLine_stockDate" property="stockDate" z="xg77n0ZHKl+QaE/15l4XaHRjC6A="/>
+            <table:column id="c_com_malsolo_jshop_domain_StockLine_provider" property="provider" z="sgE1FXwO9GUNupW0tHc6aBcHeEU="/>
+        </table:table>
+    </page:list>
+</div>

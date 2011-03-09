@@ -3,9 +3,11 @@
 
 package com.malsolo.jshop.domain;
 
+import com.malsolo.jshop.domain.ProviderDataOnDemand;
 import com.malsolo.jshop.domain.StockLine;
 import java.util.List;
 import java.util.Random;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 privileged aspect StockLineDataOnDemand_Roo_DataOnDemand {
@@ -16,8 +18,15 @@ privileged aspect StockLineDataOnDemand_Roo_DataOnDemand {
     
     private List<StockLine> StockLineDataOnDemand.data;
     
+    @Autowired
+    private ProviderDataOnDemand StockLineDataOnDemand.providerDataOnDemand;
+    
     public StockLine StockLineDataOnDemand.getNewTransientStockLine(int index) {
         com.malsolo.jshop.domain.StockLine obj = new com.malsolo.jshop.domain.StockLine();
+        obj.setQuantity(new Integer(index));
+        obj.setCost(new Integer(index).doubleValue());
+        obj.setStockDate(new java.util.GregorianCalendar(java.util.Calendar.getInstance().get(java.util.Calendar.YEAR), java.util.Calendar.getInstance().get(java.util.Calendar.MONTH), java.util.Calendar.getInstance().get(java.util.Calendar.DAY_OF_MONTH), java.util.Calendar.getInstance().get(java.util.Calendar.HOUR_OF_DAY), java.util.Calendar.getInstance().get(java.util.Calendar.MINUTE), java.util.Calendar.getInstance().get(java.util.Calendar.SECOND) + new Double(Math.random() * 1000).intValue()).getTime());
+        obj.setProvider(providerDataOnDemand.getRandomProvider());
         return obj;
     }
     

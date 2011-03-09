@@ -6,6 +6,7 @@ package com.malsolo.jshop.web;
 import com.malsolo.jshop.domain.Brand;
 import com.malsolo.jshop.domain.ElectricalAppliance;
 import com.malsolo.jshop.domain.Kind;
+import com.malsolo.jshop.domain.StockLine;
 import java.io.UnsupportedEncodingException;
 import java.lang.Integer;
 import java.lang.Long;
@@ -111,6 +112,11 @@ privileged aspect ElectricalApplianceController_Roo_Controller {
     @ModelAttribute("kinds")
     public java.util.Collection<Kind> ElectricalApplianceController.populateKinds() {
         return Kind.findAllKinds();
+    }
+    
+    @ModelAttribute("stocklines")
+    public java.util.Collection<StockLine> ElectricalApplianceController.populateStockLines() {
+        return StockLine.findAllStockLines();
     }
     
     String ElectricalApplianceController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

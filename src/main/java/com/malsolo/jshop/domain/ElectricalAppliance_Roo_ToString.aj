@@ -14,7 +14,8 @@ privileged aspect ElectricalAppliance_Roo_ToString {
         sb.append("Model: ").append(getModel()).append(", ");
         sb.append("Earnings: ").append(getEarnings()).append(", ");
         sb.append("Kind: ").append(getKind()).append(", ");
-        sb.append("Brand: ").append(getBrand());
+        sb.append("Brand: ").append(getBrand()).append(", ");
+        sb.append("StockLines: ").append(getStockLines() == null ? "null" : getStockLines().size());
         return sb.toString();
     }
     

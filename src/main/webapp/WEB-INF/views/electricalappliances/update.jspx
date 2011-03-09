@@ -7,6 +7,7 @@
         <field:select field="brand" id="c_com_malsolo_jshop_domain_ElectricalAppliance_brand" itemValue="id" items="${brands}" path="/brands" required="true" z="UgQKBzF4DQ+OMy+YFeTfqGihF2k="/>
         <field:textarea field="description" id="c_com_malsolo_jshop_domain_ElectricalAppliance_description" required="true" z="Fx9N8Wlr2j5u1FoQclo05EHjEVM="/>
         <field:textarea field="model" id="c_com_malsolo_jshop_domain_ElectricalAppliance_model" required="true" z="770QORasOSLsAGSCTXexHYxzNPY="/>
+        <field:simple field="stockLines" id="c_com_malsolo_jshop_domain_ElectricalAppliance_stockLines" messageCode="entity_reference_not_managed" messageCodeAttribute="Stock Line" z="ATgBsvKnJZ335tgTHnXaDIo5zH0="/>
         <field:input field="earnings" id="c_com_malsolo_jshop_domain_ElectricalAppliance_earnings" required="true" validationMessageCode="field_invalid_number" z="5nsl6uK4GMfnPGkVXF3ZByAt5lc="/>
         <field:select field="kind" id="c_com_malsolo_jshop_domain_ElectricalAppliance_kind" itemValue="id" items="${kinds}" path="/kinds" required="true" z="yFQ/q/BZRsTQ0O8NwgCuJlZnK7s="/>
     </form:update>
