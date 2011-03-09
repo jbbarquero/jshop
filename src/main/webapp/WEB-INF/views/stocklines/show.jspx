@@ -7,5 +7,6 @@
         <field:display field="cost" id="s_com_malsolo_jshop_domain_StockLine_cost" object="${stockline}" z="aq7C4En/37RhP43L7mzoK7b1KJ4="/>
         <field:display date="true" dateTimePattern="${stockLine_stockdate_date_format}" field="stockDate" id="s_com_malsolo_jshop_domain_StockLine_stockDate" object="${stockline}" z="I8BaeRXze7c/OVd7f0L/Enr77kw="/>
         <field:display field="provider" id="s_com_malsolo_jshop_domain_StockLine_provider" object="${stockline}" z="mdfqotBpT/e7RjjNsbkVeVdOLbw="/>
+    <field:display field="electrialAppliance" id="s_com_malsolo_jshop_domain_StockLine_electrialAppliance" object="${stockline}" z="PsbCFK9VwH6ZWrRJDhCdtuHwaw8="/>
     </page:show>
 </div>

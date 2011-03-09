@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:find finderName="ByCostBetweenAndProviderAndQuantityBetweenAndStockDateBetween" id="ff_com_malsolo_jshop_domain_StockLine" path="/stocklines" z="xiSteVzakLDyzOT8PYEXsWXsdNY=">
+        <field:input disableFormBinding="true" field="minCost" id="f_com_malsolo_jshop_domain_StockLine_minCost" required="true" validationMessageCode="field_invalid_number" z="mOWePLpvFARWbrtsJ8srQalZXys="/>
+        <field:input disableFormBinding="true" field="maxCost" id="f_com_malsolo_jshop_domain_StockLine_maxCost" required="true" validationMessageCode="field_invalid_number" z="b0F/jAeyMHWQA6VAqwyThyVyAJk="/>
+        <field:select disableFormBinding="true" field="provider" id="f_com_malsolo_jshop_domain_StockLine_provider" itemValue="id" items="${providers}" path="/providers" required="true" z="V5M5I/PJbRA693kbAnH5LugynpI="/>
+        <field:input disableFormBinding="true" field="minQuantity" id="f_com_malsolo_jshop_domain_StockLine_minQuantity" required="true" validationMessageCode="field_invalid_integer" z="a1BG39kqEgryBKwhnazHfQnjjOc="/>
+        <field:input disableFormBinding="true" field="maxQuantity" id="f_com_malsolo_jshop_domain_StockLine_maxQuantity" required="true" validationMessageCode="field_invalid_integer" z="TkIaWxf2VikPoaZWv8XjwgnKeeU="/>
+        <field:datetime dateTimePattern="${stockLine_minstockdate_date_format}" disableFormBinding="true" field="minStockDate" id="f_com_malsolo_jshop_domain_StockLine_minStockDate" required="true" z="a1J4Jhajy89H7ytaMbYfFFU48qE="/>
+        <field:datetime dateTimePattern="${stockLine_maxstockdate_date_format}" disableFormBinding="true" field="maxStockDate" id="f_com_malsolo_jshop_domain_StockLine_maxStockDate" required="true" z="q1xGVuUZ4uzmXTYDaNMMLuLpi4w="/>
+    </form:find>
+</div>

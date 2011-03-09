@@ -7,6 +7,7 @@
         <field:input field="cost" id="c_com_malsolo_jshop_domain_StockLine_cost" required="true" validationMessageCode="field_invalid_number" z="xSlMAFuTo/eXeXqskMxd+hJ4Rxg="/>
         <field:datetime dateTimePattern="${stockLine_stockdate_date_format}" field="stockDate" id="c_com_malsolo_jshop_domain_StockLine_stockDate" required="true" z="Vo+iA01XGyOcMCsGaUtt4Qv4pEc="/>
         <field:select field="provider" id="c_com_malsolo_jshop_domain_StockLine_provider" itemValue="id" items="${providers}" path="/providers" required="true" z="ySITPGz7ABfo8ochR+4NglhVeNg="/>
+    <field:select field="electrialAppliance" id="c_com_malsolo_jshop_domain_StockLine_electrialAppliance" itemValue="id" items="${electricalappliances}" path="/electricalappliances" z="KtDCbBhqUqgQ1Rx9bRVsDKRW2XY="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_malsolo_jshop_domain_StockLine" render="${not empty dependencies}" z="G1q6dr0sgLMgVtZZ/mmpj4/03LA="/>
 </div>

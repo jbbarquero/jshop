@@ -8,6 +8,7 @@
             <table:column id="c_com_malsolo_jshop_domain_StockLine_cost" property="cost" z="XasGeD6Kvzdm9CFjmBijEyvp5+M="/>
             <table:column id="c_com_malsolo_jshop_domain_StockLine_stockDate" property="stockDate" z="xg77n0ZHKl+QaE/15l4XaHRjC6A="/>
             <table:column id="c_com_malsolo_jshop_domain_StockLine_provider" property="provider" z="sgE1FXwO9GUNupW0tHc6aBcHeEU="/>
+        <table:column id="c_com_malsolo_jshop_domain_StockLine_electrialAppliance" property="electrialAppliance" z="clmnJYjWgEvGcAEOAq1pNwMpqTQ="/>
         </table:table>
     </page:list>
 </div>
