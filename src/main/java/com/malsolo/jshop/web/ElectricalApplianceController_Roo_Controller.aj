@@ -99,6 +99,19 @@ privileged aspect ElectricalApplianceController_Roo_Controller {
         return "redirect:/electricalappliances";
     }
     
+    @RequestMapping(params = { "find=ByBrandAndKindAndModelLike", "form" }, method = RequestMethod.GET)
+    public String ElectricalApplianceController.findElectricalAppliancesByBrandAndKindAndModelLikeForm(Model uiModel) {
+        uiModel.addAttribute("brands", Brand.findAllBrands());
+        uiModel.addAttribute("kinds", Kind.findAllKinds());
+        return "electricalappliances/findElectricalAppliancesByBrandAndKindAndModelLike";
+    }
+    
+    @RequestMapping(params = "find=ByBrandAndKindAndModelLike", method = RequestMethod.GET)
+    public String ElectricalApplianceController.findElectricalAppliancesByBrandAndKindAndModelLike(@RequestParam("brand") Brand brand, @RequestParam("kind") Kind kind, @RequestParam("model") String model, Model uiModel) {
+        uiModel.addAttribute("electricalappliances", ElectricalAppliance.findElectricalAppliancesByBrandAndKindAndModelLike(brand, kind, model).getResultList());
+        return "electricalappliances/list";
+    }
+    
     @ModelAttribute("brands")
     public Collection<Brand> ElectricalApplianceController.populateBrands() {
         return Brand.findAllBrands();

@@ -10,10 +10,11 @@ import javax.persistence.TemporalType;
 import org.springframework.format.annotation.DateTimeFormat;
 import com.malsolo.jshop.domain.Provider;
 import javax.persistence.ManyToOne;
+import com.malsolo.jshop.domain.ElectricalAppliance;
 
 @RooJavaBean
 @RooToString
-@RooEntity
+@RooEntity(finders = { "findStockLinesByCostBetweenAndProviderAndQuantityBetweenAndStockDateBetween" })
 public class StockLine {
 
     @NotNull
@@ -30,4 +31,7 @@ public class StockLine {
     @NotNull
     @ManyToOne
     private Provider provider;
+
+    @ManyToOne
+    private ElectricalAppliance electrialAppliance;
 }

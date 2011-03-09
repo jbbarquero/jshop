@@ -4,6 +4,6 @@
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_com_malsolo_jshop_domain_Kind" modelAttribute="kind" path="/kinds" versionField="Version" z="9WxbH2FyK567kw83w18xWinK8mg=">
         <field:textarea field="name" id="c_com_malsolo_jshop_domain_Kind_name" required="true" z="A258WfxPybsVOdP32WMDIz5GFOY="/>
-        <field:textarea field="description" id="c_com_malsolo_jshop_domain_Kind_description" required="true" z="mxREln3caxzZfFU3a1TFdMI/j7Y="/>
+        
     </form:update>
 </div>

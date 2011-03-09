@@ -15,12 +15,4 @@ privileged aspect Brand_Roo_JavaBean {
         this.name = name;
     }
     
-    public String Brand.getDescription() {
-        return this.description;
-    }
-    
-    public void Brand.setDescription(String description) {
-        this.description = description;
-    }
-    
 }

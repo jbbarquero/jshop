@@ -9,8 +9,7 @@ privileged aspect Brand_Roo_ToString {
     
     public String Brand.toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Name: ").append(getName()).append(", ");
-        sb.append("Description: ").append(getDescription());
+        sb.append("Name: ").append(getName());
         return sb.toString();
     }
     

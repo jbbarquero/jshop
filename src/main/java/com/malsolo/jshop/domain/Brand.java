@@ -15,6 +15,4 @@ public class Brand {
     @Size(min = 1, max = 50)
     private String name;
 
-    @NotNull
-    private String description;
 }

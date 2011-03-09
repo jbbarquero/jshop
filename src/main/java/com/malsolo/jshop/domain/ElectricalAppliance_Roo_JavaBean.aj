@@ -12,14 +12,6 @@ import java.util.Set;
 
 privileged aspect ElectricalAppliance_Roo_JavaBean {
     
-    public String ElectricalAppliance.getName() {
-        return this.name;
-    }
-    
-    public void ElectricalAppliance.setName(String name) {
-        this.name = name;
-    }
-    
     public String ElectricalAppliance.getDescription() {
         return this.description;
     }

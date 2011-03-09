@@ -12,7 +12,8 @@ privileged aspect StockLine_Roo_ToString {
         sb.append("Quantity: ").append(getQuantity()).append(", ");
         sb.append("Cost: ").append(getCost()).append(", ");
         sb.append("StockDate: ").append(getStockDate()).append(", ");
-        sb.append("Provider: ").append(getProvider());
+        sb.append("Provider: ").append(getProvider()).append(", ");
+        sb.append("ElectrialAppliance: ").append(getElectrialAppliance());
         return sb.toString();
     }
     
