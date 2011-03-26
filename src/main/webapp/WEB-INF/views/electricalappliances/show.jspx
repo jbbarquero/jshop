@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_com_malsolo_jshop_domain_ElectricalAppliance" object="${electricalappliance}" path="/electricalappliances" z="V3f52u2/GNrJ4q/qkMM2HnCxRf4=">
         
-        <field:display field="brand" id="s_com_malsolo_jshop_domain_ElectricalAppliance_brand" object="${electricalappliance}" z="hgQHFmQ/e3h8NNYHJCRUlGYwJ0k="/>
-        <field:display field="description" id="s_com_malsolo_jshop_domain_ElectricalAppliance_description" object="${electricalappliance}" z="w1IuvOKJFLlb9Bw6tNvu6w4i4aI="/>
+        <field:display field="name" id="s_com_malsolo_jshop_domain_ElectricalAppliance_kind" object="${electricalappliance.kind}" z="user-managed"/>
+        <field:display field="name" id="s_com_malsolo_jshop_domain_ElectricalAppliance_brand" object="${electricalappliance.brand}" z=""/>
         <field:display field="model" id="s_com_malsolo_jshop_domain_ElectricalAppliance_model" object="${electricalappliance}" z="jLQHcFGSttXT0yZeKlgTcOwNvJo="/>
+	    <field:display field="description" id="s_com_malsolo_jshop_domain_ElectricalAppliance_description" object="${electricalappliance}" z="w1IuvOKJFLlb9Bw6tNvu6w4i4aI="/>
+	    <field:display field="addQuantity" id="c_com_malsolo_jshop_domain_StockLine_quantity" object="${electricalappliance}"/>
+        <field:display field="averageCost" id="c_com_malsolo_jshop_domain_StockLine_cost" object="${electricalappliance}"/>
         <field:display field="earnings" id="s_com_malsolo_jshop_domain_ElectricalAppliance_earnings" object="${electricalappliance}" z="pl8D/EdT31R5WIlCFodiFpC60yc="/>
-        <field:display field="kind" id="s_com_malsolo_jshop_domain_ElectricalAppliance_kind" object="${electricalappliance}" z="e7wTbgf3fyCbAX8n7zyi6af1R/Q="/>
-    <field:display field="stockLines" id="s_com_malsolo_jshop_domain_ElectricalAppliance_stockLines" object="${electricalappliance}" z="i9tmfzqyvzHutRtoJVnSi5uv9os="/>
-    
+        <field:display field="salePrice"  id="c_com_malsolo_jshop_domain_ElectricalAppliance_pvp" object="${electricalappliance}"/>
+		<field:display field="advantage"  id="c_com_malsolo_jshop_domain_ElectricalAppliance_advantage" object="${electricalappliance}"/>
+        <field:display field="stockLines" id="s_com_malsolo_jshop_domain_ElectricalAppliance_stockLines" object="${electricalappliance}" z="" render="false"/>
+        
+        <table:table data="${electricalappliance.stockLines}" id="l_com_malsolo_jshop_domain_StockLine" path="/stocklines" z="3HjlYE2d+72dc2HuoqxTFKcaTsE=">
+            <table:column id="c_com_malsolo_jshop_domain_StockLine_quantity" property="quantity" z=""/>
+            <table:column id="c_com_malsolo_jshop_domain_StockLine_cost" property="cost" z=""/>
+            <table:column id="c_com_malsolo_jshop_domain_StockLine_stockDate" property="stockDate" z=""/>
+            <table:column id="c_com_malsolo_jshop_domain_StockLine_provider" property="provider.name" z=""/>
+        </table:table>
+                
     </page:show>
 </div>
