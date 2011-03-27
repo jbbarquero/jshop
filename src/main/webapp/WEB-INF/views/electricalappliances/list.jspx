@@ -3,17 +3,20 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <page:list id="pl_com_malsolo_jshop_domain_ElectricalAppliance" items="${electricalappliances}" z="+/r3ad036z0b7P7+jDxvRhLp8ns=">
+    	<div style="overflow-x: auto;">
         <table:table data="${electricalappliances}" id="l_com_malsolo_jshop_domain_ElectricalAppliance" path="/electricalappliances" z="aid8CjPpld+HcSVTZ1lqePYjRck=">
-            
-            <table:column id="c_com_malsolo_jshop_domain_ElectricalAppliance_brand" property="brand" z="EoZ1fS7Xblu9mM9YPzFpuSojrFI="/>
-            <table:column id="c_com_malsolo_jshop_domain_ElectricalAppliance_description" property="description" z="j9YLKlyORAvfLKNBVbtG8c6yIfc="/>
+        	<table:column id="c_com_malsolo_jshop_domain_StockLine_stockDate" property="lastDateStockLine"/>
+        	<table:column id="c_com_malsolo_jshop_domain_ElectricalAppliance_kind" property="kind.name"/>
+            <table:column id="c_com_malsolo_jshop_domain_ElectricalAppliance_brand" property="brand.name"/>
             <table:column id="c_com_malsolo_jshop_domain_ElectricalAppliance_model" property="model" z="ppEefKy2RdjzM1FRUpXE6fsE/kg="/>
-            <table:column id="c_com_malsolo_jshop_domain_ElectricalAppliance_earnings" property="earnings" z="3QBL6uefpY7roaqbfxbaFo4Ai64="/>
-            
-        <table:column id="c_com_malsolo_jshop_domain_ElectricalAppliance_stockLines" property="stockLines" z="xTjLriIkUv7FnNL1CIhnqg7SED0="/>
-        
-        
-        <table:column id="c_com_malsolo_jshop_domain_ElectricalAppliance_kind" property="kind" z="weQK2PahoqDrd9qNyEHXb8MyXsI="/>
+            <table:column id="c_com_malsolo_jshop_domain_StockLine_quantity" property="addQuantity"/>
+            <table:column id="c_com_malsolo_jshop_domain_StockLine_cost" property="averageCost"/>
+			<table:column id="c_com_malsolo_jshop_domain_ElectricalAppliance_earnings" property="earnings" z="3QBL6uefpY7roaqbfxbaFo4Ai64="/>
+			<table:column id="c_com_malsolo_jshop_domain_ElectricalAppliance_pvp" property="salePrice"/>
+			<table:column id="c_com_malsolo_jshop_domain_ElectricalAppliance_advantage" property="advantage"/>
+            <table:column id="c_com_malsolo_jshop_domain_ElectricalAppliance_description" property="description" maxLength="50"/>
+            <table:column id="c_com_malsolo_jshop_domain_ElectricalAppliance_stockLines" property="stockLines" render="false"/>
         </table:table>
+        </div>
     </page:list>
 </div>
