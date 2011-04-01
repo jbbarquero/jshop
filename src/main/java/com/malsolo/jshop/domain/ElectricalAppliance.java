@@ -53,7 +53,7 @@ public class ElectricalAppliance {
     public Date getLastDateStockLine(){
     	Date resultado = null;
     	
-    	if (this.stockLines != null){
+    	if (this.stockLines != null && this.stockLines.size() > 0){
     		List<StockLine> stockLinesOrdenar = new ArrayList<StockLine>(this.stockLines);
     		Collections.sort(stockLinesOrdenar, new StockLineDateComparator());
     		resultado = stockLinesOrdenar.get(0).getStockDate();
