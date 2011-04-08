@@ -68,7 +68,7 @@
 			     <td>
 			         <c:choose>
 			             <c:when test="${not convert}">
-			                 <c:out value="${columnMaxLength lt 0 ? prop : fn:substring(prop, 0, columnMaxLength)}" />
+			                 <c:out value="${columnMaxLength lt 0 ? prop : (fn:substring(prop, 0, columnMaxLength))}" />
 			             </c:when>
 			             <c:otherwise>
 			                 <spring:eval expression="prop" />
